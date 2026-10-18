@@ -14,7 +14,7 @@
 6. **Wrote the evaluation:** thresholds are the 99th percentile of each score over dev clean batches; the same thresholds are applied unchanged to a held-out split. Detection means "failed with the expected reason".
 7. **Wrote 45 tests** in four files: rules and loaders, gate and anomalies, real-subprocess exit codes, and evaluation. All pass.
 8. **Mutation-checked** 8 behaviours (crash handler, unique rule, removed-column drift, rate boundary, unknown-key rejection, freshness SLA, stale-report deletion, history update on failure). One survived first time, see below.
-9. **Wrote the README and this file**, then committed locally. Nothing is pushed and CI has not run.
+9. **Wrote the README and this file**, then committed locally. Pushed to both accounts; CI passed on Python 3.11 and 3.13.
 
 Problems and choices along the way:
 - The first demo showed a dev-tuned `pattern` threshold of 0.2061 on *clean* data. Cause: my generator produced `SAVE5` to `SAVE9` for a pattern requiring two digits. The tuning exposed a bug in my own corpus; fixed to `SAVE10` and up.
